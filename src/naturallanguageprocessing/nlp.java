@@ -3,13 +3,14 @@ import java.util.Scanner;
 public class nlp { 
 	  
 
-		private static Scanner in;
 		private static Scanner in1;
+		private static Scanner in2;
 
 
 		public static String soundex(String s) { 
-	        char[] x = s.toUpperCase().toCharArray();
+	        char[] x = s.toCharArray();
 	        char firstLetter = x[0];
+		                
 	        
 	        // convert letters to numeric code
 	        for (int i = 1; i < x.length; i++) {
@@ -197,30 +198,58 @@ public class nlp {
 
 
 	    public static void main(String[] args) {
-	    	String name1,name2;
-	    	in = new Scanner(System.in);
+	    	String name1,name2;	    	
 	    	in1 = new Scanner(System.in);
+	    	in2 = new Scanner(System.in);
 
 	        System.out.print("enter a string1");
-	        name1=in.nextLine();
+	        name1=in1.nextLine();
 	        String code1 = soundex(name1);
 	        System.out.println(code1);
-
+	     	char[] a = name1.toCharArray();
+	        
+	        
 	        
 	        System.out.print("enter a string2");
-	        name2=in1.nextLine();        
+	        name2=in2.nextLine();        
 	        String code2 = soundex(name2);
 	        System.out.println(code2);
+	        char[] b = name2.toCharArray();
 	        
-	     /*   System.out.print("enter a string3");
+	        
+	        /*
+	     	System.out.print("enter a string3");
 	        name3=in.nextLine();	     
 	        String code3 = soundex(name3);
 	        System.out.println(code3);
 	    	*/
+      
+	        if(code1.equals(code2)){
+	        	System.out.println("strings matched");
+	        }	
+	        	
+	        else{
+	        //match strings
+	        int counter = 0;
+	        if(a.length==b.length){
+	        for (int i = 0; i<b.length; i++){
+	        
+	        	if(a[i]==b[i])
+	        		counter++;
+	        	}
+	        }
 	        
 	        
-
+	        
+	        if(counter==(a.length-1) || counter==(a.length-2) || counter==a.length){      
+	        System.out.println("strings maybe matching");}
+	        	 
+	        else{
+	        	System.out.println("strings not matching");
+	        }
+	        
+	        } 
 	    }
-	}
-
-
+	 
+}
+																																																																																																																				
